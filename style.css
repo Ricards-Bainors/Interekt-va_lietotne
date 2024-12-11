@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.task-input {
+    margin-bottom: 20px;
+}
+
+.task-input input {
+    padding: 10px;
+    width: 60%;
+    margin-right: 10px;
+}
+
+.task-input select {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.task-input button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.task-input button:hover {
+    background-color: #218838;
+}
+
+.task-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.task-list li > span,
+.task-list li > button {
+    flex: 1; 
+    margin: 5px; 
+}
+
+.task-list li .task-category {
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 10px;
+    flex: 0 0 150px; 
+}
+
+.task-list li .completed {
+    text-decoration: line-through;
+}
+
+.task-list li .inProgress {
+    font-style: italic;
+    color: #ffa500; 
+}
+
+.task-list li > button {
+    flex: 0 0 auto; 
+    margin-left: 10px;
+}
+
+.task-filters {
+    margin-top: 20px;
+}
+
+.task-filters input,
+.task-filters select {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.task-list .task-category {
+    font-size: 0.9em;
+    color: #666;
+    margin-left: 10px;
+}

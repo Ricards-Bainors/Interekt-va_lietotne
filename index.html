@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Personīgais Uzdevumu Saraksts</h1>
+        </header>
+        <main>
+            <section class="task-input">
+                <input type="text" v-model="newTask" placeholder="Pievienot jaunu uzdevumu">
+                <select v-model="newTaskCategory">
+                    <option value="Personīgais">Personīgais</option>
+                    <option value="Darbs">Darbs</option>
+                    <option value="Studijas">Studijas</option>
+                </select>
+                <button @click="addTask">Pievienot</button>
+            </section>
+            <section class="task-list">
+                <section class="task-filters">
+                    <h2>Filtri</h2>
+                    <input type="text" v-model="searchQuery" placeholder="Meklēt uzdevumus">
+                    <select v-model="filterCategory">
+                        <option value="">Visas kategorijas</option>
+                        <option value="Personīgais">Personīgais</option>
+                        <option value="Darbs">Darbs</option>
+                        <option value="Studijas">Studijas</option>
+                    </select>
+                    <select v-model="filterStatus">
+                        <option value="">Visi statusi</option>
+                        <option value="Pabeigts">Pabeigts</option>
+                        <option value="Nepabeigts">Nepabeigts</option>
+                        <option value="Progressā">Progressā</option>
+                    </select>
+                </section>
+                <section class="task-list">
+                    <h2>Uzdevumi</h2>
+                    <ul>
+                        <li v-for="task in filteredTasks" :key="task.id">
+                            <span v-if="!task.isEditing" :class="{ completed: task.completed, inProgress: task.status === 'Progressā' }">{{ task.name }}</span>
+                            <input v-else type="text" v-model="task.newName" @keyup.enter="saveTask(task.id)" @blur="saveTask(task.id)">
+                            <span v-if="!task.isEditing" class="task-category">{{ task.category }}</span>
+                            <select v-else v-model="task.newCategory">
+                                <option value="Personīgais">Personīgais</option>
+                                <option value="Darbs">Darbs</option>
+                                <option value="Studijas">Studijas</option>
+                            </select>
+                            <button @click="toggleTaskStatus(task.id)">Pārslēgt statusu</button>
+                            <button @click="markInProgress(task.id)">Progressā</button>
+                            <button @click="editTask(task.id)" v-if="!task.isEditing">Rediģēt</button>
+                            <button @click="saveTask(task.id)" v-else>Saglabāt</button>
+                            <button @click="deleteTask(task.id)">Dzēst</button>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
