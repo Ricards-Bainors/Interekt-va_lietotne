@@ -77,16 +77,6 @@ main {
     text-decoration: line-through;
 }
 
-.task-list li .inProgress {
-    font-style: italic;
-    color: #ffa500; 
-}
-
-.task-list li > button {
-    flex: 0 0 auto; 
-    margin-left: 10px;
-}
-
 .task-filters {
     margin-top: 20px;
 }
@@ -97,8 +87,52 @@ main {
     margin-right: 10px;
 }
 
-.task-list .task-category {
-    font-size: 0.9em;
-    color: #666;
-    margin-left: 10px;
+/* Button styles for task list */
+.task-list button {
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.task-list button.toggle-status {
+    background-color: #007bff;
+}
+
+.task-list button.toggle-status:hover {
+    background-color: #0056b3;
+}
+
+.task-list button.in-progress {
+    background-color: #17a2b8;
+}
+
+.task-list button.in-progress:hover {
+    background-color: #138496;
+}
+
+.task-list button.edit {
+    background-color: #ffc107;
+}
+
+.task-list button.edit:hover {
+    background-color: #e0a800;
+}
+
+.task-list button.save {
+    background-color: #28a745;
+}
+
+.task-list button.save:hover {
+    background-color: #218838;
+}
+
+.task-list button.delete {
+    background-color: #dc3545;
+}
+
+.task-list button.delete:hover {
+    background-color: #c82333;
 }

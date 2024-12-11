@@ -50,11 +50,11 @@
                                 <option value="Darbs">Darbs</option>
                                 <option value="Studijas">Studijas</option>
                             </select>
-                            <button @click="toggleTaskStatus(task.id)">Pārslēgt statusu</button>
-                            <button @click="markInProgress(task.id)">Progressā</button>
-                            <button @click="editTask(task.id)" v-if="!task.isEditing">Rediģēt</button>
-                            <button @click="saveTask(task.id)" v-else>Saglabāt</button>
-                            <button @click="deleteTask(task.id)">Dzēst</button>
+                            <button @click="toggleTaskStatus(task.id)" class="toggle-status">Pārslēgt statusu</button>
+                            <button @click="markInProgress(task.id)" class="in-progress">Progressā</button>
+                            <button @click="editTask(task.id)" v-if="!task.isEditing" class="edit">Rediģēt</button>
+                            <button @click="saveTask(task.id)" v-else class="save">Saglabāt</button>
+                            <button @click="deleteTask(task.id)" class="delete">Dzēst</button>
                         </li>
                     </ul>
                 </section>
